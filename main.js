@@ -71,25 +71,74 @@ console.log("The male member is:", result);
 
 // 9) Create a function that returns true if the value of birthDate is before Jan 1, 1990.
 
-let x = arrayOfPersons.map(person => {
-    const birthYear = Number(person.birthDate.slice(-4));
-    if(birthYear < 1990){
-        return true
-    } 
-    return false
-})
+const bornBefore = (arr) => {
+    arr.forEach(element =>{
+        let year = parseInt(element.birthDate.slice(-4));
+        // console.log(year)
+        if (year < 1990) {
+           console.log("Born before 1990? " + year, true)
+           return true
+        } else {
+            console.log("Born before 1990? " + year, false)
+            return false
+        }
+    })
+}
 
-console.log("The game is", x)
+console.log(" ")
+console.log("Is their birthday before 1990")
+bornBefore(arrayOfPersons)
 
 
 // 10) Use .filter() to filter the arrayOfPersons and console.log only people that were born before Jan 1, 1990.
 
-let m = arrayOfPersons.map(person => {
-    const birthYear = Number(person.birthDate.slice(-4));
-    if(birthYear < 1990){
-        console.log(person)
-    } 
-})
+const whoWasBornBefore = arrayOfPersons.filter(function (arr) {
+    let year = parseInt(arr.birthDate.slice(-4));
+    if (year < 1990) {
+        return arr
+     }
+});
+
+console.log(" ")
+console.log("Who was born before Jan 1, 1990?")
+console.log(whoWasBornBefore)
+
+// function to check if date is 21 or more years ago
+const checkDate = (year) => {
+    let d = new Date();
+    let fullYear = d.getFullYear();
+    // console.log(fullYear)
+    if (fullYear - year >= 21) {
+        console.log(year, true)
+        return true
+    } else {
+        console.log(year, false)
+        return false
+    }
+}
+
+console.log(" ")
+console.log("Is 1995 more than 21 years ago")
+checkDate(1995)
+
+const canParty = (x) => {
+    x.filter(function (arr) {
+      let d = new Date();
+      let fullYear = d.getFullYear();
+      let year = parseInt(arr.birthDate.slice(-4));
+      if (checkDate(year)) {
+          console.log(`${arr.firstName} ${arr.lastName} is old enough to party!`)
+      } else {
+        console.log(`${arr.firstName} ${arr.lastName} is not old enough to party. ${21 - (fullYear - year)} more years to go!`)
+      }
+    })
+}
+
+console.log(" ")
+console.log("Is each person old enough to party?")
+canParty(arrayOfPersons)
+
+// console.log(canParty(arrayOfPersons))
 
 
 
