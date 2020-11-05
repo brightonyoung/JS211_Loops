@@ -42,7 +42,25 @@ const arrayOfPersons = [
         lastName: "Tyler",
         birthDate: "March 10, 1986",
         gender: "male"
-        }
+    },
+    {
+        firstName: "Don",
+        lastName: "Hon",
+        birthDate: "Nov 16, 1965",
+        gender: "male"
+    },
+    {
+        firstName: "Mandy",
+        lastName: "Moore",
+        birthDate: "Sep 17, 1996",
+        gender: "female"
+    }, 
+    {
+        firstName: "Roger",
+        lastName: "Rabbit",
+        birthDate: "Mar 18, 1776",
+        gender: "male"
+    }
 ]
 
 // 6) Create a function that uses a for...of loop and an if statement to console.log the value 
